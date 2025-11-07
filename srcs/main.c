@@ -14,10 +14,12 @@
 
 int	main(int ac, char **av)
 {
-	t_stack	**stack;
+	t_stack	*st_a;
+	t_stack	*st_b;
+	t_moves	*moves;
 
 	if (ac < 3)
 		exit_error();
-	create_stacks(stack);
+	create_stacks();
 	return (0);
 }

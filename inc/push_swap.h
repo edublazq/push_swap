@@ -21,6 +21,19 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-void	exit_error();
+typedef struct s_moves
+{
+	char			*move;
+	struct s_moves	*next;
+}					t_moves;
+
+void	exit_error(void);
+
+//STACK UTILS
+t_stack	*create_stack(int nb);
+t_stack	*stacklast(t_stack *stack);
+void	stackadd_back(t_stack **main, t_stack *new);
+void	stackadd_front(t_stack **stack, t_stack *new);
+void	stackdelone(t_stack *stack);
 
 #endif
