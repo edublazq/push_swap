@@ -14,16 +14,18 @@
 
 void	parse_all(t_stack **st_a, t_stack **st_b, int ac, char **av)
 {
-	t_stack	*new;
-	int		err;
-	int		i;
+	t_stack		*new;
+	int			err;
+	long int	nb;
+	int			i;
 
 	i = 1;
 	while (i < ac)
 	{
-		new = create_stack(ft_atoi(av[i], &err));
-		if (err == 1)
-			free_exit(st_a, st_b);
+		nb = ft_atoi(av[i], &err);
+		if (nb > 2147483647 || nb < -2147483648 || err == 1)
+			free_exit(st_a, st_b, 0);
+		new = create_stack(nb);
 		stackadd_back(st_a, new);
 		new = NULL;
 		i++;

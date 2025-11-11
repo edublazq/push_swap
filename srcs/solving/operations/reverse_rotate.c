@@ -16,6 +16,8 @@ void	reverse_rotate_a(t_stack **st_a, int nb)
 {
 	t_stack	*tmp;
 
+	if (!st_a)
+		return ;
 	tmp = stacklast(*st_a);
 	stackadd_front(st_a, tmp);
 	tmp = stacklast(*st_a);
@@ -28,6 +30,8 @@ void	reverse_rotate_b(t_stack **st_b, int nb)
 {
 	t_stack	*tmp;
 
+	if (!st_b)
+		return ;
 	tmp = stacklast(*st_b);
 	stackadd_front(st_b, tmp);
 	tmp = stacklast(*st_b);
@@ -38,6 +42,8 @@ void	reverse_rotate_b(t_stack **st_b, int nb)
 
 void	reverse_rotate_r(t_stack **st_a, t_stack **st_b)
 {
+	if (!st_a || !st_b)
+		return ;
 	reverse_rotate_a(st_a, 1);
 	reverse_rotate_a(st_b, 1);
 	ft_printf("rrr\n");

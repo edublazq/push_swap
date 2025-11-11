@@ -35,6 +35,7 @@ t_stack	*stacklast(t_stack *stack);
 void	stackadd_back(t_stack **main, t_stack *new);
 void	stackadd_front(t_stack **stack, t_stack *new);
 void	stackdelone(t_stack *stack);
+t_stack	**free_stack(t_stack **stack);
 
 //OPERATIONS
 void	push_a(t_stack **st_a, t_stack *st_b);
@@ -48,5 +49,9 @@ void	swap_s(t_stack *st_a, t_stack *st_b);
 void	reverse_rotate_a(t_stack **st_a, int nb);
 void	reverse_rotate_b(t_stack **st_b, int nb);
 void	reverse_rotate_r(t_stack **st_a, t_stack **st_b);
+
+//EXIT AND ERRORS
+void	free_exit(t_stack **st_a, t_stack **st_b, int nb);
+void	exit_error(void);
 
 #endif

@@ -14,10 +14,14 @@
 
 void	push_a(t_stack **st_a, t_stack *st_b)
 {
+	if (!st_a || !st_b)
+		return ;
 	stackadd_front(st_a, st_b);
 }
 
 void	push_b(t_stack **st_b, t_stack *st_a)
 {
+	if (!st_a || !st_b)
+		return ;
 	stackadd_front(st_b, st_a);
 }

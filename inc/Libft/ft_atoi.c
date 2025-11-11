@@ -20,11 +20,11 @@ static unsigned int	ft_isspace(char c)
 		return (0);
 }
 
-int	ft_atoi(const char *nptr, int *err)
+long int	ft_atoi(const char *nptr, int *err)
 {
-	int	i;
-	int	num;
-	int	neg;
+	int			i;
+	long int	num;
+	int			neg;
 
 	i = 0;
 	err = 0;
