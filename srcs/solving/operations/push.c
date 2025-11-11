@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edblazqu <edblazqu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 12:14:51 by edblazqu          #+#    #+#             */
-/*   Updated: 2025/11/07 12:14:52 by edblazqu         ###   ########.fr       */
+/*   Created: 2025/11/10 09:53:00 by edblazqu          #+#    #+#             */
+/*   Updated: 2025/11/10 09:53:01 by edblazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../../inc/push_swap.h"
 
-int	main(int ac, char **av)
+void	push_a(t_stack **st_a, t_stack *st_b)
 {
-	t_stack	*st_a;
-	t_stack	*st_b;
-	t_moves	*moves;
+	stackadd_front(st_a, st_b);
+}
 
-	if (ac < 3)
-		exit_error();
-	parse_all(st_a, st_b, ac, av);
-	return (0);
+void	push_b(t_stack **st_b, t_stack *st_a)
+{
+	stackadd_front(st_b, st_a);
 }

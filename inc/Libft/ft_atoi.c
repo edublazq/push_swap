@@ -20,17 +20,20 @@ static unsigned int	ft_isspace(char c)
 		return (0);
 }
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr, int *err)
 {
 	int	i;
 	int	num;
 	int	neg;
 
 	i = 0;
+	err = 0;
 	neg = 1;
 	num = 0;
 	while (ft_isspace(nptr[i]))
 		i++;
+	if (nptr[i] != '-' || nptr[i] != '+' || (nptr[i] >= '0' && nptr[i] <= '9'))
+		*err = 1;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')

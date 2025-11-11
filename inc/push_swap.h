@@ -36,4 +36,17 @@ void	stackadd_back(t_stack **main, t_stack *new);
 void	stackadd_front(t_stack **stack, t_stack *new);
 void	stackdelone(t_stack *stack);
 
+//OPERATIONS
+void	push_a(t_stack **st_a, t_stack *st_b);
+void	push_b(t_stack **st_b, t_stack *st_a);
+void	rotate_a(t_stack **st_a, int nb);
+void	rotate_b(t_stack **st_b, int nb);
+void	rotate_r(t_stack **st_a, t_stack **st_b);
+void	swap_a(t_stack *st_a, int nb);
+void	swap_b(t_stack *st_b, int nb);
+void	swap_s(t_stack *st_a, t_stack *st_b);
+void	reverse_rotate_a(t_stack **st_a, int nb);
+void	reverse_rotate_b(t_stack **st_b, int nb);
+void	reverse_rotate_r(t_stack **st_a, t_stack **st_b);
+
 #endif

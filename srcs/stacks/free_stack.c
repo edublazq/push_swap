@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edblazqu <edblazqu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 12:14:51 by edblazqu          #+#    #+#             */
-/*   Updated: 2025/11/07 12:14:52 by edblazqu         ###   ########.fr       */
+/*   Created: 2025/11/11 14:38:51 by edblazqu          #+#    #+#             */
+/*   Updated: 2025/11/11 14:38:52 by edblazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
-int	main(int ac, char **av)
+t_stack	**free_stack(t_stack **stack)
 {
-	t_stack	*st_a;
-	t_stack	*st_b;
-	t_moves	*moves;
+	t_stack	*tmp;
 
-	if (ac < 3)
-		exit_error();
-	parse_all(st_a, st_b, ac, av);
-	return (0);
+	tmp = *stack;
+	while (*stack)
+	{
+		*stack = tmp;
+		tmp = (*stack)->next;
+		free(*stack);
+	}
+	*stack = NULL;
+	free(stack);
+	stack = NULL;
+	return (stack);
 }

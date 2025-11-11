@@ -17,3 +17,8 @@ void	exit_error(void)
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
+
+void	free_exit(t_stack **st_a, t_stack **st_b)
+{
+	free_stack();
+}
