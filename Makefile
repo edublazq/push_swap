@@ -1,7 +1,7 @@
 NAME = push_swap
 NAME_BONUS = checker
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 RM = rm -rf
 LIBFT_DIR = ./inc/Libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -18,11 +18,11 @@ BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	@echo "Compiling pipex..."
+	@echo " 🧬 Compiling push_swap 🧬"
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 bonus: $(LIBFT) $(BONUS_OBJS)
-	@echo "Compiling bonus pipex..."
+	@echo "Compiling bonus push_swap..."
 	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(GNL) $(LIBFT) -o $(NAME_BONUS)
 
 $(LIBFT):
