@@ -16,10 +16,16 @@ int	main(int ac, char **av)
 {
 	t_stack	*st_a;
 	t_stack	*st_b;
-	t_moves	*moves;
+	//t_moves	*moves;
 
 	if (ac < 3)
 		exit_error();
-	parse_all(st_a, st_b, ac, av);
+	printf("PASO LOS ARGUMENTOS\n");
+	st_a = NULL;
+	st_b = NULL;
+	parse_all(&st_a, &st_b, ac, av);
+	printf("PARSEO HECHO\n");
+	free_stack(st_a);
+	free_stack(st_b);
 	return (0);
 }

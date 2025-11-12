@@ -31,7 +31,7 @@ t_stack	*stacklast(t_stack *stack)
 	if (!stack)
 		return (NULL);
 	tmp = stack;
-	while (tmp->next == NULL)
+	while (tmp->next != NULL)
 		tmp = tmp->next;
 	return (tmp);
 }

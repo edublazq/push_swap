@@ -12,19 +12,69 @@
 
 #include "../inc/push_swap.h"
 
+static int64_t	ft_atoi_ps(const char *nptr, int *err)
+{
+	int64_t	nb;
+	int		neg;
+	size_t	i;
+
+	nb = 0;
+	i = 0;
+	neg = 1;
+	if (ft_strlen(nptr) >= 19)
+		return (*err = 1, 0);
+	while (ft_isspace(nptr[i]))
+		i++;
+	while (nptr[i] == '+' || nptr[i] == '-')
+	{
+		if (nptr[i] == '-')
+			neg *= -1;
+		i++;
+	}
+	while (nptr[i])
+	{
+		if (nptr[i] < '0' || nptr[i] > '9')
+			return (*err = 1, 0);
+		nb = (nb * 10) + (nptr[i] - '0');
+		i++;
+	}
+	return (nb * neg);
+}
+
+static int	search_num(t_stack **st_a, int nb)
+{
+	t_stack	*idx;
+
+	if (!*st_a || !st_a)
+		return (0);
+	idx = *st_a;
+	while (idx)
+	{
+		if (nb == idx->value)
+			return (1);
+		idx = idx->next;
+	}
+	return (0);
+}
+
 void	parse_all(t_stack **st_a, t_stack **st_b, int ac, char **av)
 {
 	t_stack		*new;
 	int			err;
-	long int	nb;
+	int64_t		nb;
 	int			i;
 
 	i = 1;
+	nb = 0;
 	while (i < ac)
 	{
-		nb = ft_atoi(av[i], &err);
+		err = 0;
+		nb = ft_atoi_ps(av[i], &err);
+		printf("NB -> %ld ERR -> %d \n", nb, err);
 		if (nb > 2147483647 || nb < -2147483648 || err == 1)
-			free_exit(st_a, st_b, 0);
+			free_exit(st_a, st_b, 1);
+		if (search_num(st_a, nb))
+			free_exit(st_a, st_b, 1);
 		new = create_stack(nb);
 		stackadd_back(st_a, new);
 		new = NULL;

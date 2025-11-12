@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edblazqu <edblazqu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 14:38:51 by edblazqu          #+#    #+#             */
-/*   Updated: 2025/11/11 14:38:52 by edblazqu         ###   ########.fr       */
+/*   Created: 2025/11/12 08:42:49 by edblazqu          #+#    #+#             */
+/*   Updated: 2025/11/12 08:42:50 by edblazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "libft.h"
 
-t_stack	*free_stack(t_stack *stack)
+int	ft_isspace(char c)
 {
-	t_stack	*next;
-
-	if (!stack)
-		return (NULL);
-	while (stack)
-	{
-		next = (stack)->next;
-		free(stack);
-		stack = next;
-	}
-	return (NULL);
+	if ((c >= 9 && c <= 13) || c == ' ')
+		return (1);
+	else
+		return (0);
 }

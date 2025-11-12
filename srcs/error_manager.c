@@ -20,8 +20,8 @@ void	exit_error(void)
 
 void	free_exit(t_stack **st_a, t_stack **st_b, int nb)
 {
-	st_a = free_stack(st_a);
-	st_b = free_stack(st_b);
+	*st_a = free_stack(*st_a);
+	*st_b = free_stack(*st_b);
 	if (nb == 1)
 		exit_error();
 }
