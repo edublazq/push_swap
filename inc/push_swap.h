@@ -21,37 +21,21 @@
 typedef struct s_stack
 {
 	int				value;
+	int				idx;
 	struct s_stack	*next;
 }					t_stack;
-
-typedef struct s_moves
-{
-	char			*move;
-	struct s_moves	*next;
-}					t_moves;
-
-typedef enum
-{
-	PA,
-	PB,
-	SA,
-	SB,
-	RA,
-	RB,
-	RR
-}	e_operations;
 
 //STACK UTILS
 t_stack	*create_stack(int nb);
 t_stack	*stacklast(t_stack *stack);
 void	stackadd_back(t_stack **main, t_stack *new);
 void	stackadd_front(t_stack **stack, t_stack *new);
-void	stackdelone(t_stack *stack);
+size_t	stack_length(t_stack *stack);
 t_stack	*free_stack(t_stack *stack);
 
 //OPERATIONS
-void	push_a(t_stack **st_a, t_stack *st_b);
-void	push_b(t_stack **st_b, t_stack *st_a);
+void	push_a(t_stack **st_a, t_stack **st_b);
+void	push_b(t_stack **st_b, t_stack **st_a);
 void	rotate_a(t_stack **st_a, int nb);
 void	rotate_b(t_stack **st_b, int nb);
 void	rotate_r(t_stack **st_a, t_stack **st_b);
@@ -64,7 +48,10 @@ void	reverse_rotate_r(t_stack **st_a, t_stack **st_b);
 
 //MAIN FUNCTIONS
 void	parse_all(t_stack **st_a, t_stack **st_b, int ac, char **av);
+int		index_stack(t_stack **st_a);
 void	sort_three(t_stack **st_a);
+void	sort_five(t_stack **st_a, t_stack **st_b);
+void	sort(t_stack **st_a, t_stack **st_b);
 
 //EXIT AND ERRORS
 void	free_exit(t_stack **st_a, t_stack **st_b, int nb);

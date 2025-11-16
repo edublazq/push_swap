@@ -17,8 +17,7 @@ void	rotate_a(t_stack **st_a, int nb)
 	t_stack	*tmp;
 
 	tmp = *st_a;
-	stackadd_front(st_a, (*st_a)->next);
-	(*st_a)->next = tmp->next;
+	*st_a = (*st_a)->next;
 	stackadd_back(st_a, tmp);
 	tmp->next = NULL;
 	if (nb != 1)
@@ -30,9 +29,9 @@ void	rotate_b(t_stack **st_b, int nb)
 	t_stack	*tmp;
 
 	tmp = *st_b;
-	stackadd_front(st_b, (*st_b)->next);
-	tmp->next = NULL;
+	*st_b = (*st_b)->next;
 	stackadd_back(st_b, tmp);
+	tmp->next = NULL;
 	if (nb != 1)
 		ft_printf("rb\n");
 }

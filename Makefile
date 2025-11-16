@@ -7,7 +7,7 @@ LIBFT_DIR = ./inc/Libft
 LIBFT = $(LIBFT_DIR)/libft.a
 SRCS = ./srcs/error_manager.c ./srcs/main.c ./srcs/parse.c ./srcs/stacks/stack_utils.c ./srcs/stacks/free_stack.c \
 ./srcs/solving/sort.c ./srcs/solving/operations/push.c ./srcs/solving/operations/swap.c ./srcs/solving/operations/rotate.c \
-./srcs/solving/operations/reverse_rotate.c ./srcs/solving/minor_sort.c
+./srcs/solving/operations/reverse_rotate.c ./srcs/solving/minor_sort.c ./srcs/indexing.c
 BONUS_SRCS = 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)

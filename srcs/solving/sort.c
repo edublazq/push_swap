@@ -12,4 +12,13 @@
 
 #include "../../inc/push_swap.h"
 
+void	sort(t_stack **st_a, t_stack **st_b)
+{
+	size_t	length;
 
+	length = stack_length(*st_a);
+	if (length == 3)
+		sort_three(st_a);
+	else if (length <= 5)
+		sort_five(st_a, st_b);
+}

@@ -16,17 +16,15 @@ int	main(int ac, char **av)
 {
 	t_stack	*st_a;
 	t_stack	*st_b;
-	//t_moves	*moves;
 
 	if (ac < 3)
 		exit(1);
-	printf("PASO LOS ARGUMENTOS\n");
 	st_a = NULL;
 	st_b = NULL;
 	parse_all(&st_a, &st_b, ac, av);
-	printf("PARSEO HECHO\n");
-	sort_three(&st_a);
-	printf("FINAL-> %d ___ %d ___ %d", st_a->value, st_a->next->value, st_a->next->next->value);
+	if (index_stack(&st_a))
+		free_exit(&st_a, &st_b, 1);
+	sort(&st_a, &st_b);
 	free_stack(st_a);
 	free_stack(st_b);
 	return (0);

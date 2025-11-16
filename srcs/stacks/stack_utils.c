@@ -40,7 +40,7 @@ void	stackadd_back(t_stack **main, t_stack *new)
 {
 	t_stack	*idx;
 
-	if (!main || !new)
+	if (!new)
 		return ;
 	if (*main == NULL)
 	{
@@ -59,10 +59,17 @@ void	stackadd_front(t_stack **stack, t_stack *new)
 	*stack = new;
 }
 
-void	stackdelone(t_stack *stack)
+size_t	stack_length(t_stack *stack)
 {
-	if (!stack)
-		return ;
-	free(stack);
-	stack = NULL;
+	size_t	i;
+	t_stack	*tmp;
+
+	i = 0;
+	tmp = stack;
+	while (tmp)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
 }
