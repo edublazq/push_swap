@@ -18,8 +18,9 @@ void	rotate_a(t_stack **st_a, int nb)
 
 	tmp = *st_a;
 	stackadd_front(st_a, (*st_a)->next);
-	tmp->next = NULL;
+	(*st_a)->next = tmp->next;
 	stackadd_back(st_a, tmp);
+	tmp->next = NULL;
 	if (nb != 1)
 		ft_printf("ra\n");
 }

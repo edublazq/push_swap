@@ -15,6 +15,7 @@
 
 # include "Libft/libft.h"
 # include <stdio.h>
+# include <limits.h>
 # include <stdint.h>
 
 typedef struct s_stack
@@ -28,6 +29,17 @@ typedef struct s_moves
 	char			*move;
 	struct s_moves	*next;
 }					t_moves;
+
+typedef enum
+{
+	PA,
+	PB,
+	SA,
+	SB,
+	RA,
+	RB,
+	RR
+}	e_operations;
 
 //STACK UTILS
 t_stack	*create_stack(int nb);
@@ -52,6 +64,7 @@ void	reverse_rotate_r(t_stack **st_a, t_stack **st_b);
 
 //MAIN FUNCTIONS
 void	parse_all(t_stack **st_a, t_stack **st_b, int ac, char **av);
+void	sort_three(t_stack **st_a);
 
 //EXIT AND ERRORS
 void	free_exit(t_stack **st_a, t_stack **st_b, int nb);

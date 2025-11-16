@@ -64,4 +64,5 @@ void	stackdelone(t_stack *stack)
 	if (!stack)
 		return ;
 	free(stack);
+	stack = NULL;
 }
