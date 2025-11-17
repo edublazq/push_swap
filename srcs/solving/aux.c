@@ -1,26 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   aux.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edblazqu <edblazqu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 16:07:20 by edblazqu          #+#    #+#             */
-/*   Updated: 2025/11/11 16:07:20 by edblazqu         ###   ########.fr       */
+/*   Created: 2025/11/17 14:49:50 by edblazqu          #+#    #+#             */
+/*   Updated: 2025/11/17 14:49:51 by edblazqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void	sort(t_stack **st_a, t_stack **st_b)
+int	ft_sqrt(int nb)
 {
-	size_t	length;
+	int	final;
 
-	length = stack_length(*st_a);
-	if (length == 3)
-		sort_three(st_a);
-	else if (length <= 5)
-		sort_five(st_a, st_b);
-	else
-		big_sort(st_a, st_b);
+	if (nb <= 0)
+		return (0);
+	final = 1;
+	while (final * final <= nb)
+		final++;
+	return (final - 1);
+}
+
+int	get_rot_cost(t_stack *stack, int nb)
+{
+	int	cost;
+
+	cost = 0;
+	while (stack && stack->idx != nb)
+	{
+		stack = stack->next;
+		cost++;
+	}
+	return (cost);
+}
+
+int	get_rev_rot_cost(t_stack *stack, int nb)
+{
+	return ((int)stack_length(stack) - get_rot_cost(stack, nb));
 }

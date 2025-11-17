@@ -70,7 +70,6 @@ void	parse_all(t_stack **st_a, t_stack **st_b, int ac, char **av)
 	{
 		err = 0;
 		nb = ft_atoi_ps(av[i], &err);
-		printf("NB -> %ld\n", nb);
 		if (nb > INT_MAX || nb < INT_MIN || err == 1)
 			free_exit(st_a, st_b, 1);
 		if (search_num(st_a, nb))

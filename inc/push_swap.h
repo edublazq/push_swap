@@ -46,11 +46,17 @@ void	reverse_rotate_a(t_stack **st_a, int nb);
 void	reverse_rotate_b(t_stack **st_b, int nb);
 void	reverse_rotate_r(t_stack **st_a, t_stack **st_b);
 
+//AUX
+int		ft_sqrt(int nb);
+int		get_rev_rot_cost(t_stack *stack, int nb);
+int		get_rot_cost(t_stack *stack, int nb);
+
 //MAIN FUNCTIONS
 void	parse_all(t_stack **st_a, t_stack **st_b, int ac, char **av);
 int		index_stack(t_stack **st_a);
 void	sort_three(t_stack **st_a);
 void	sort_five(t_stack **st_a, t_stack **st_b);
+void	big_sort(t_stack **st_a, t_stack **st_b);
 void	sort(t_stack **st_a, t_stack **st_b);
 
 //EXIT AND ERRORS

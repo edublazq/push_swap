@@ -15,7 +15,7 @@
 void	swap_a(t_stack *st_a, int nb)
 {
 	t_stack	*next;
-	int	tmp;
+	int		tmp;
 
 	if (!st_a->next)
 		return ;
@@ -30,7 +30,7 @@ void	swap_a(t_stack *st_a, int nb)
 void	swap_b(t_stack *st_b, int nb)
 {
 	t_stack	*next;
-	int	tmp;
+	int		tmp;
 
 	if (!st_b->next)
 		return ;
