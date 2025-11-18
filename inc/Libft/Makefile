@@ -65,10 +65,10 @@ bonus: $(BONUS_OBJS)
 	@echo "🌟 Compiling bonus libft 🌟"
 	@ar rcs $(NAME) $(BONUS_OBJS)
 clean:
-	@echo "🗑️ Removing objs "
+	@echo "🗑️  Removing objs 🗑️"
 	@$(RM) $(OBJS) $(BONUS_OBJS)
 fclean: clean
-	@echo "🗑️ Removing $(NAME)"
+	@echo "🗑️  Removing $(NAME) 🗑️"
 	@$(RM) $(NAME)
 so: $(OBJS)
 	$(CC) -shared -o libft.so $(OBJS) $(BONUS_OBJS)

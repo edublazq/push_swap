@@ -34,17 +34,17 @@ size_t	stack_length(t_stack *stack);
 t_stack	*free_stack(t_stack *stack);
 
 //OPERATIONS
-void	push_a(t_stack **st_a, t_stack **st_b);
-void	push_b(t_stack **st_b, t_stack **st_a);
+void	push_a(t_stack **st_a, t_stack **st_b, int nb);
+void	push_b(t_stack **st_b, t_stack **st_a, int nb);
 void	rotate_a(t_stack **st_a, int nb);
 void	rotate_b(t_stack **st_b, int nb);
-void	rotate_r(t_stack **st_a, t_stack **st_b);
+void	rotate_r(t_stack **st_a, t_stack **st_b, int nb);
 void	swap_a(t_stack *st_a, int nb);
 void	swap_b(t_stack *st_b, int nb);
-void	swap_s(t_stack *st_a, t_stack *st_b);
+void	swap_s(t_stack *st_a, t_stack *st_b, int nb);
 void	reverse_rotate_a(t_stack **st_a, int nb);
 void	reverse_rotate_b(t_stack **st_b, int nb);
-void	reverse_rotate_r(t_stack **st_a, t_stack **st_b);
+void	reverse_rotate_r(t_stack **st_a, t_stack **st_b, int nb);
 
 //AUX
 int		ft_sqrt(int nb);
@@ -60,6 +60,7 @@ void	big_sort(t_stack **st_a, t_stack **st_b);
 void	sort(t_stack **st_a, t_stack **st_b);
 
 //EXIT AND ERRORS
+void	free_split(char **split);
 void	free_exit(t_stack **st_a, t_stack **st_b, int nb);
 void	exit_error(void);
 

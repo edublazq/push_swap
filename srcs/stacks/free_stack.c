@@ -20,8 +20,10 @@ t_stack	*free_stack(t_stack *stack)
 		return (NULL);
 	while (stack)
 	{
-		next = (stack)->next;
+		next = stack->next;
 		free(stack);
+		if (next == NULL)
+			break;
 		stack = next;
 	}
 	return (NULL);

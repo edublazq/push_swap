@@ -12,22 +12,24 @@
 
 #include "../../../inc/push_swap.h"
 
-void	push_a(t_stack **st_a, t_stack **st_b)
+void	push_a(t_stack **st_a, t_stack **st_b, int nb)
 {
 	t_stack	*tmp;
 
 	tmp = *st_b;
 	*st_b = (*st_b)->next;
 	stackadd_front(st_a, tmp);
-	ft_printf("pa\n");
+	if (nb != 1)
+		ft_printf("pa\n");
 }
 
-void	push_b(t_stack **st_b, t_stack **st_a)
+void	push_b(t_stack **st_b, t_stack **st_a, int nb)
 {
 	t_stack	*tmp;
 
 	tmp = *st_a;
 	*st_a = (*st_a)->next;
 	stackadd_front(st_b, tmp);
-	ft_printf("pb\n");
+	if (nb != 1)
+		ft_printf("pb\n");
 }

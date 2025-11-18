@@ -42,9 +42,10 @@ void	swap_b(t_stack *st_b, int nb)
 		ft_printf("sb\n");
 }
 
-void	swap_s(t_stack *st_a, t_stack *st_b)
+void	swap_s(t_stack *st_a, t_stack *st_b, int nb)
 {
 	swap_a(st_a, 1);
 	swap_b(st_b, 1);
-	ft_printf("ss\n");
+	if (nb != 1)
+		ft_printf("ss\n");
 }

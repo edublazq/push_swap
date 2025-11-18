@@ -36,9 +36,10 @@ void	rotate_b(t_stack **st_b, int nb)
 		ft_printf("rb\n");
 }
 
-void	rotate_r(t_stack **st_a, t_stack **st_b)
+void	rotate_r(t_stack **st_a, t_stack **st_b, int nb)
 {
 	rotate_a(st_a, 1);
 	rotate_b(st_b, 1);
-	ft_printf("rr\n");
+	if (nb != 1)
+		ft_printf("rr\n");
 }

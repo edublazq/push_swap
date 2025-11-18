@@ -46,7 +46,7 @@ void	sort_five(t_stack **st_a, t_stack **st_b)
 	while (stack_length(*st_a) > 3)
 	{
 		if ((*st_a)->idx > 3)
-			push_b(st_b, st_a);
+			push_b(st_b, st_a, 0);
 		else
 			rotate_a(st_a, 0);
 	}
@@ -55,7 +55,7 @@ void	sort_five(t_stack **st_a, t_stack **st_b)
 		rotate_b(st_b, 0);
 	while ((*st_b) != NULL)
 	{
-		push_a(st_a, st_b);
+		push_a(st_a, st_b, 0);
 		rotate_a(st_a, 0);
 	}
 }

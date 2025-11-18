@@ -70,9 +70,15 @@ void	pick_num(t_stack **st_a, t_stack **st_b, char **split)
 		err = 0;
 		nb = ft_atoi_ps(split[i], &err);
 		if (nb > INT_MAX || nb < INT_MIN || err == 1)
+		{
+			free_split(split);
 			free_exit(st_a, st_b, 1);
+		}
 		if (search_num(st_a, nb))
+		{
+			free_split(split);
 			free_exit(st_a, st_b, 1);
+		}
 		new = create_stack(nb);
 		stackadd_back(st_a, new);
 		new = NULL;
@@ -94,9 +100,7 @@ void	parse_all(t_stack **st_a, t_stack **st_b, int ac, char **av)
 		if (!split)
 			free_exit(st_a, st_b, 1);
 		pick_num(st_a, st_b, split);
-		while (split[j])
-			free(split[j++]);
-		free(split);
+		free_split(split);
 		i++;
 	}
 }

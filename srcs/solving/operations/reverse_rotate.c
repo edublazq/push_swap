@@ -46,11 +46,12 @@ void	reverse_rotate_b(t_stack **st_b, int nb)
 		ft_printf("rrb\n");
 }
 
-void	reverse_rotate_r(t_stack **st_a, t_stack **st_b)
+void	reverse_rotate_r(t_stack **st_a, t_stack **st_b, int nb)
 {
 	if (!st_a || !st_b)
 		return ;
 	reverse_rotate_a(st_a, 1);
 	reverse_rotate_a(st_b, 1);
-	ft_printf("rrr\n");
+	if (nb != 1)
+		ft_printf("rrr\n");
 }

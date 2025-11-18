@@ -23,14 +23,14 @@ static void	push_to_b(t_stack **st_a, t_stack **st_b)
 	{
 		if ((*st_a)->idx <= small_pivot)
 		{
-			push_b(st_b, st_a);
+			push_b(st_b, st_a, 0);
 			if (stack_length(*st_b) > 1)
 				rotate_b(st_b, 0);
 			small_pivot++;
 		}
 		else if ((*st_a)->idx <= small_pivot + big_pivot)
 		{
-			push_b(st_b, st_a);
+			push_b(st_b, st_a, 0);
 			small_pivot++;
 		}
 		else
@@ -51,13 +51,13 @@ static void	back_to_black(t_stack **st_a, t_stack **st_b)
 		{
 			while ((*st_b)->idx != (int)stack_length(*st_b))
 				rotate_b(st_b, 0);
-			push_a(st_a, st_b);
+			push_a(st_a, st_b, 0);
 		}
 		else
 		{
 			while ((*st_b)->idx != (int)stack_length(*st_b))
 				reverse_rotate_b(st_b, 0);
-			push_a(st_a, st_b);
+			push_a(st_a, st_b, 0);
 		}
 	}
 }
