@@ -17,7 +17,14 @@ void	sort(t_stack **st_a, t_stack **st_b)
 	size_t	length;
 
 	length = stack_length(*st_a);
-	if (length == 3)
+	if (length <= 1)
+		return ;
+	if (length == 2)
+	{
+		if ((*st_a)-> idx == 2)
+			rotate_a(st_a, 0);
+	}
+	else if (length == 3)
 		sort_three(st_a);
 	else if (length <= 5)
 		sort_five(st_a, st_b);

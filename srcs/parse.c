@@ -57,7 +57,51 @@ static int	search_num(t_stack **st_a, int nb)
 	return (0);
 }
 
+void	pick_num(t_stack **st_a, t_stack **st_b, char **split)
+{
+	size_t	i;
+	int64_t	nb;
+	t_stack	*new;
+	int		err;
+
+	i = 0;
+	while (split[i])
+	{
+		err = 0;
+		nb = ft_atoi_ps(split[i], &err);
+		if (nb > INT_MAX || nb < INT_MIN || err == 1)
+			free_exit(st_a, st_b, 1);
+		if (search_num(st_a, nb))
+			free_exit(st_a, st_b, 1);
+		new = create_stack(nb);
+		stackadd_back(st_a, new);
+		new = NULL;
+		i++;
+	}
+}
+
 void	parse_all(t_stack **st_a, t_stack **st_b, int ac, char **av)
+{
+	int		i;
+	int		j;
+	char	**split;
+
+	i = 1;
+	while (i < ac)
+	{
+		j = 0;
+		split = ft_split(av[i], ' ');
+		if (!split)
+			free_exit(st_a, st_b, 1);
+		pick_num(st_a, st_b, split);
+		while (split[j])
+			free(split[j++]);
+		free(split);
+		i++;
+	}
+}
+
+/* void	parse_all(t_stack **st_a, t_stack **st_b, int ac, char **av)
 {
 	t_stack		*new;
 	int			err;
@@ -73,10 +117,10 @@ void	parse_all(t_stack **st_a, t_stack **st_b, int ac, char **av)
 		if (nb > INT_MAX || nb < INT_MIN || err == 1)
 			free_exit(st_a, st_b, 1);
 		if (search_num(st_a, nb))
-			free_exit(st_a, st_b, 1);
+			free_exit(st_a, st_b, 1); //UTIL PERO NO CORRECTO
 		new = create_stack(nb);
 		stackadd_back(st_a, new);
 		new = NULL;
 		i++;
 	}
-}
+} */

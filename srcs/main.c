@@ -17,7 +17,7 @@ int	main(int ac, char **av)
 	t_stack	*st_a;
 	t_stack	*st_b;
 
-	if (ac < 3)
+	if (ac < 2)
 		exit(1);
 	st_a = NULL;
 	st_b = NULL;

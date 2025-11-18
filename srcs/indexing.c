@@ -82,5 +82,6 @@ int	index_stack(t_stack **st_a)
 	fill_array(*st_a, arr);
 	bubble_sort(arr, length);
 	set_index(arr, st_a, length);
+	free(arr);
 	return (0);
 }
